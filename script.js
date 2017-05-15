@@ -1,3 +1,11 @@
 $(document).ready(function(){
-	console.log('Hello');
+	$('#stone').click(function(){
+		console.log('Stone');
+	});
+	$('#paper').click(function(){
+		console.log('paper');
+	});
+	$('#scissor').click(function(){
+		console.log('Scissor');
+	});
 })
