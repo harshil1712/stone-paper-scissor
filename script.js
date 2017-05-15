@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	var userChoice,computerChoice;
 	$('#stone').click(function(){
 		userChoice='rock';
@@ -66,13 +65,4 @@ $(document).ready(function(){
 	        }
 	    }
 	}
-	$('#stone').click(function(){
-		console.log('Stone');
-	});
-	$('#paper').click(function(){
-		console.log('paper');
-	});
-	$('#scissor').click(function(){
-		console.log('Scissor');
-	});
 })
