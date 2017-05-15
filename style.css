@@ -1,4 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700|Shadows+Into+Light');
+h1{
+	font-family: 'Amatic SC', cursive;
+	font-size: 100px;
+	text-shadow: 4px 3px 1px #b2afaf;
+}
 img{
 	height: 300px;
 	width: 300px;
+	position: relative;
+}
+h2{
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 50px;
+}
+p{
+	font-size: 15px;
+	margin-bottom: 25px;
+}
+@keyframes bounce{
+	0%{top:0;}
+	33.33%{top:10px;}
+	100%{top:0;}
+}
+img:hover{
+	-webkit-animation: bounce .4s linear;
+	-o-animation: bounce .4s linear;
+	animation: bounce .4s linear;
 }
