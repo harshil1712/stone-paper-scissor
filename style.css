@@ -30,6 +30,31 @@ img:hover{
 .computer{
 	display: none;
 }
+.w3-modal-content{
+	height: 250px;
+	width: 500px;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	box-shadow: 3px 5px 1px #7b7b7b;
+	padding-top:50px;
+}
+.messageTxt{
+	font-size: 50px;
+}
+.w3-button{
+	font-size: 25px;
+}
+.w3-button:hover{
+	background-color: white!important;
+}
+button{
+	background: #4ABAEF;
+	height: 40px;
+	border-radius: 5px;
+	color: white;
+	border:none;
+	box-shadow: 2px 5px 1px #c4c4d4;
+}
 @media only screen 
 and (max-width : 990px){
 	img{

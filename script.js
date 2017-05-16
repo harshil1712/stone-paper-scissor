@@ -39,17 +39,20 @@ $(document).ready(function(){
 	    if(choice1===choice2)
 	    {
 	        console.log("The result is a tie!");
+	        $('.messageTxt').text('Tie!');
 	    }
 	    else if(choice1==="rock")
 	    {
 	        if(choice2==="scissor")
 	        {
 	            console.log("Player Wins");
+	            $('.messageTxt').text('You Win!');
 	            playerCount++;
 	        }
 	        else
 	        {
 	            console.log("Computer wins");
+	            $('.messageTxt').text('You Lose!');
 	            computerCount++;
 	        }
 	    }
@@ -58,11 +61,13 @@ $(document).ready(function(){
 	        if(choice2==="rock")
 	        {
 	            console.log("Player wins");
+	            $('.messageTxt').text('You Win!');
 	            playerCount++;
 	        }
 	        else
 	        {
 	            console.log("Computer wins");
+	            $('.messageTxt').text('You Lose!');
 	            computerCount++;
 	        }
 	    }
@@ -71,11 +76,13 @@ $(document).ready(function(){
 	        if(choice2==="paper")
 	        {
 	            console.log("Player wins");
+	            $('.messageTxt').text('You Win!');
 	            playerCount++;
 	        }
 	        else
 	        {
 	            console.log("Computer wins");
+	            $('.messageTxt').text('You Lose!');
 	            computerCount++;
 	        }
 	    }
@@ -100,8 +107,27 @@ var display= function(){
 		
 		//$('.player').css('width','500px');
 		//$('.computer').css('width','500px');
-				$('.computer').css("display", "block");
+		$('.computer').css("display", "block");
+		document.getElementById('id01').style.display='block';
 }
+$('#continue').click(function(){
+	document.getElementById('id01').style.display='none';
+	$('#stone, #paper, #scissor').css('display','block');
+	$('.computer').css("display", "none");
+	var pWrapper = $('#pWrapper');
+		if(width<990 && width>750){
+			pWrapper.toggleClass('col-sm-6 col-sm-12');
+			$('.stone, .paper, .scissor').toggleClass('col-sm-12 col-sm-4');
+		}
+		else if(width<750 ){
+			pWrapper.toggleClass('col-xs-6 col-xs-12');
+			$('.stone, .paper, .scissor').toggleClass('col-xs-12 col-xs-4');
+		}
+		else {
+			pWrapper.toggleClass('col-lg-6 col-lg-12');
+			$('.scissor, .stone, .paper').toggleClass('col-lg-12 col-lg-4');
+		}
+})
 var width=$(window).width();
 console.log(width);
 })
