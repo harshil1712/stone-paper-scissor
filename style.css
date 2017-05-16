@@ -27,3 +27,7 @@ img:hover{
 	-o-animation: bounce .4s linear;
 	animation: bounce .4s linear;
 }
+.computer{
+	display: none;
+	width: 500px;
+}

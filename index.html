@@ -11,13 +11,26 @@
 	<header>
 		<h1 class="text-center">Stone, Paper, Scissor</h1>
 	</header>
-	<div class="container">
-		<h2 class="text-center">Player</h2>
-		<p class="text-center">Pick Your Choice</p>
-		<div class="rows">
-			<div class="col-md-4"><a role="button" id="stone"><img src="stone.png" alt="Stone"></a></div>			
-			<div class="col-md-4"><a role="button" id="paper"><img src="paper.png" alt="Paper"></a></div>			
-			<div class="col-md-4"><a role="button" id="scissor"><img src="scissor.svg" alt="Scissor"></a></div>
+	<div class="rows">
+		<div class="col-md-12" id="pWrapper">
+			<div class="player container">
+				<h2 class="text-center">Player <span id="playerScore"></span></h2>
+				<p class="text-center">Pick Your Choice</p>
+				<div class="rows">
+					<div class="stone text-center col-md-4"><a role="button" id="stone" class="text-center"><img src="stone.png" alt="Stone"></a></div>			
+					<div class="paper text-center col-md-4"><a role="button" id="paper" class="text-center"><img src="paper.png" alt="Paper"></a></div>			
+					<div class="scissor text-center col-md-4"><a role="button" id="scissor" class="text-center"><img src="scissor.svg" alt="Scissor"></a></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="computer container">
+				<h2 class="text-center">Computer <span id="computerScore"></h2>
+				<p class="text-center">Computer's Choice</p>
+				<div class="rows">
+					<div class="text-center col-md-12"><img id="c_img" /></div>	
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
