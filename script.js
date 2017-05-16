@@ -4,33 +4,21 @@ $(document).ready(function(){
 		userChoice='rock';
 		console.log(userChoice);
 		$('#paper, #scissor').css('display','none');
-		$('.player').css('width','500px');
-		$('.computer').css('width','500px');
-		$('.stone').toggleClass('col-md-4 col-md-12');
-		$('#pWrapper').toggleClass('col-md-12 col-md-6');
-		$('.computer').css("display", "block");
+		display();
 		compare(userChoice, computerChoice);
 	});
 	$('#paper').click(function(){
 		userChoice='paper';
 		console.log(userChoice);
 		$('#stone, #scissor').css('display','none');
-		$('.player').css('width','500px');
-		$('.computer').css('width','500px');
-		$('.paper').toggleClass('col-md-4 col-md-12');
-		$('#pWrapper').toggleClass('col-md-12 col-md-6');
-		$('.computer').css("display", "block");
+		display();
 		compare(userChoice, computerChoice);
 	});
 	$('#scissor').click(function(){
 		userChoice='scissor';
 		console.log(userChoice);
 		$('#paper, #stone').css('display','none');
-		$('.player').css('width','500px');
-		$('.computer').css('width','500px');
-		$('.scissor').toggleClass('col-md-4 col-md-12');
-		$('#pWrapper').toggleClass('col-md-12 col-md-6');
-		$('.computer').css("display", "block");
+		display();
 		compare(userChoice, computerChoice);
 	});
 	var computerChoice = Math.random();
@@ -43,7 +31,7 @@ $(document).ready(function(){
 		$('#c_img').attr("src","paper.png");
 	} 
 	else {
-		computerChoice = "scissors";
+		computerChoice = "scissor";
 		$('#c_img').attr("src","scissor.svg");
 	} 
 	console.log("Computer: " + computerChoice);
@@ -54,7 +42,7 @@ $(document).ready(function(){
 	    }
 	    else if(choice1==="rock")
 	    {
-	        if(choice2==="scissors")
+	        if(choice2==="scissor")
 	        {
 	            console.log("Player Wins");
 	            playerCount++;
@@ -95,5 +83,25 @@ $(document).ready(function(){
 		$('#computerScore').text(computerCount);
 	}
 	
-
+var display= function(){
+		var pWrapper = $('#pWrapper');
+		if(width<990 && width>750){
+			pWrapper.toggleClass('col-sm-12 col-sm-6');
+			$('.stone, .paper, .scissor').toggleClass('col-sm-4 col-sm-12');
+		}
+		else if(width<750 ){
+			pWrapper.toggleClass('col-xs-12 col-xs-6');
+			$('.stone, .paper, .scissor').toggleClass('col-xs-4 col-xs-12');
+		}
+		else {
+			pWrapper.toggleClass('col-lg-12 col-lg-6');
+			$('.scissor, .stone, .paper').toggleClass('col-lg-4 col-lg-12');
+		}
+		
+		//$('.player').css('width','500px');
+		//$('.computer').css('width','500px');
+				$('.computer').css("display", "block");
+}
+var width=$(window).width();
+console.log(width);
 })

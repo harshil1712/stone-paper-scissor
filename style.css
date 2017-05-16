@@ -29,5 +29,50 @@ img:hover{
 }
 .computer{
 	display: none;
-	width: 500px;
+}
+@media only screen 
+and (max-width : 990px){
+	img{
+		height: 250px;
+		width: 250px;
+	}
+}
+@media only screen and (max-width: 750px) {
+	img{
+		height: 200px;
+		width: 200px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	img{
+		height: 175px;
+		width: 175px;
+	}
+}
+@media only screen and (max-width: 570px) {
+	img{
+		height: 150px;
+		width: 150px;
+	}
+}
+@media only screen and (max-width: 450px) {
+	img{
+		height: 125px;
+		width: 125px;
+	}
+	h2{
+		font-size: 38px;
+	}
+	h1{
+		font-size:75px;
+	}
+}
+@media only screen and (max-width: 380px) {
+	img{
+		height: 110px;
+		width: 110px;
+	}
+	h2{
+		font-size: 35px;
+	}
 }
