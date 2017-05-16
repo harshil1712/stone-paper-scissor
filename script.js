@@ -90,49 +90,78 @@ $(document).ready(function(){
 	    }
 	    $('#playerScore').text(playerCount);
 		$('#computerScore').text(computerCount);
+	}	
+	var display= function(){
+			var pWrapper = $('#pWrapper');
+			if(width<990 && width>750){
+				pWrapper.toggleClass('col-sm-12 col-sm-6');
+				$('.stone, .paper, .scissor').toggleClass('col-sm-4 col-sm-12');
+			}
+			else if(width<750 ){
+				pWrapper.toggleClass('col-xs-12 col-xs-6');
+				$('.stone, .paper, .scissor').toggleClass('col-xs-4 col-xs-12');
+			}
+			else {
+				pWrapper.toggleClass('col-lg-12 col-lg-6');
+				$('.scissor, .stone, .paper').toggleClass('col-lg-4 col-lg-12');
+			}
+			
+			//$('.player').css('width','500px');
+			//$('.computer').css('width','500px');
+			$('.computer').css("display", "block");
+			document.getElementById('id01').style.display='block';
 	}
-	
-var display= function(){
+	$('#continue').click(function(){
+		document.getElementById('id01').style.display='none';
+		$('#stone, #paper, #scissor').css('display','block');
+		$('.computer').css("display", "none");
 		var pWrapper = $('#pWrapper');
-		if(width<990 && width>750){
-			pWrapper.toggleClass('col-sm-12 col-sm-6');
-			$('.stone, .paper, .scissor').toggleClass('col-sm-4 col-sm-12');
-		}
-		else if(width<750 ){
-			pWrapper.toggleClass('col-xs-12 col-xs-6');
-			$('.stone, .paper, .scissor').toggleClass('col-xs-4 col-xs-12');
-		}
-		else {
-			pWrapper.toggleClass('col-lg-12 col-lg-6');
-			$('.scissor, .stone, .paper').toggleClass('col-lg-4 col-lg-12');
-		}
-		
-		//$('.player').css('width','500px');
-		//$('.computer').css('width','500px');
-		$('.computer').css("display", "block");
-		document.getElementById('id01').style.display='block';
-}
-$('#continue').click(function(){
-	document.getElementById('id01').style.display='none';
-	$('#stone, #paper, #scissor').css('display','block');
-	$('.computer').css("display", "none");
-	var pWrapper = $('#pWrapper');
-		if(width<990 && width>750){
-			pWrapper.toggleClass('col-sm-6 col-sm-12');
-			$('.stone, .paper, .scissor').toggleClass('col-sm-12 col-sm-4');
-		}
-		else if(width<750 ){
-			pWrapper.toggleClass('col-xs-6 col-xs-12');
-			$('.stone, .paper, .scissor').toggleClass('col-xs-12 col-xs-4');
-		}
-		else {
-			pWrapper.toggleClass('col-lg-6 col-lg-12');
-			$('.scissor, .stone, .paper').toggleClass('col-lg-12 col-lg-4');
-		}
-		compChoice();
-})
-var width=$(window).width();
-console.log(width);
-
+			if(width<990 && width>750){
+				pWrapper.toggleClass('col-sm-6 col-sm-12');
+				$('.stone, .paper, .scissor').toggleClass('col-sm-12 col-sm-4');
+			}
+			else if(width<750 ){
+				pWrapper.toggleClass('col-xs-6 col-xs-12');
+				$('.stone, .paper, .scissor').toggleClass('col-xs-12 col-xs-4');
+			}
+			else {
+				pWrapper.toggleClass('col-lg-6 col-lg-12');
+				$('.scissor, .stone, .paper').toggleClass('col-lg-12 col-lg-4');
+			}
+			compChoice();
+	})
+	var width=$(window).width();
 	compChoice();
+	if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+    'stone': function() {
+      	userChoice='rock';
+		console.log(userChoice);
+		$('#paper, #scissor').css('display','none');
+		display();
+		compare(userChoice, computerChoice);
+    },
+    'paper': function() {
+      	userChoice='paper';
+		console.log(userChoice);
+		$('#stone, #scissor').css('display','none');
+		display();
+		compare(userChoice, computerChoice);
+    },
+    'scissor': function() {
+      	userChoice='scissor';
+		console.log(userChoice);
+		$('#paper, #stone').css('display','none');
+		display();
+		compare(userChoice, computerChoice);
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start({ autoRestart: true, continuous: false });
+}
 })
